@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ikiteku.id – Sahabat Tugas Anda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="images/logo.svg" alt="ikiteku.id">
+        <span>ikiteku.id</span>
+      </a>
+      <ul class="nav-center">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Jasa Kami</a></li>
+        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        
+      </ul>
+      <div class="nav-socmed">
+        <a href="https://wa.me/6285646620741" target="_blank" title="WhatsApp">
+          <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/ikiteku.id" target="_blank" title="Instagram">
+          <img src="images/instagram-icon.svg" alt="Instagram">
+        </a>
+      </div>
+      <button class="burger" id="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#services" onclick="closeMenu()">Jasa Kami</a>
+    <a href="#testimoni" onclick="closeMenu()">Testimoni</a>
+    <a href="#contact" onclick="closeMenu()">Kontak</a>
+    <div class="mobile-socmed">
+      <a href="https://wa.me/6285646620741" target="_blank">
+        <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/ikiteku.id" target="_blank">
+        <img src="images/instagram-icon.svg" alt="Instagram"> Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="home">
+    <!-- Arrow animation background -->
+    <div class="arrows-container">
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+    </div>
+    
+    <div class="wrapper">
+      <!-- Hero title layer belakang: fill solid, di bawah model -->
+      <div class="hero-title hero-title--fill" aria-hidden="true">
+        <span class="yellow">SAHABAT</span><br>
+        TUGAS<br class="mobile-break"> ANDA
+      </div>
+      <!-- Hero title layer depan: outline only, di atas model -->
+      <h1 class="hero-title hero-title--outline">
+        <span class="yellow">SAHABAT</span><br>
+        TUGAS<br class="mobile-break"> ANDA
+      </h1>
+      <div class="hero-model">
+        <img src="images/model01.webp" alt="Model ikiteku.id">
+      </div>
+      <div class="hero-services">
+        <button class="service-btn"
+          onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Parafrase</button>
+        <button class="service-btn"
+          onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Joki Tugas</button>
+        <button class="service-btn"
+          onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Layouting Tugas</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+     SECTION: GALLERY + SERVICES (gabung)
+════════════════════════════════════════ -->
+  <section id="services">
+    <div class="wrapper">
+
+      <!-- CAROUSEL FULL — di atas section-label -->
+      <div class="carousel-wrap">
+        <div class="carousel-viewport" id="carouselViewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="carousel-slide">
+              <!-- Desktop image -->
+              <img class="img-desk" src="images/deskgal01.webp" alt="Galeri 1">
+              <!-- Mobile image -->
+              <img class="img-mob" src="images/mobgal01.webp" alt="Galeri 1">
+            </div>
+
+            <div class="carousel-slide">
+              <img class="img-desk" src="images/deskgal02.webp" alt="Galeri 2">
+              <img class="img-mob" src="images/mobgal02.webp" alt="Galeri 2">
+            </div>
+
+            <div class="carousel-slide">
+              <img class="img-desk" src="images/deskgal03.webp" alt="Galeri 3">
+              <img class="img-mob" src="images/mobgal03.webp" alt="Galeri 3">
+            </div>
+
+          </div>
+
+          <!-- Arrows (inside viewport so they overlay the image) -->
+          <button class="carousel-arrow prev" onclick="carouselMove(-1)" aria-label="Previous">
+            <img src="images/carousel-prev.svg" alt="">
+          </button>
+          <button class="carousel-arrow next" onclick="carouselMove(1)" aria-label="Next">
+            <img src="images/carousel-next.svg" alt="">
+          </button>
+        </div>
+
+        <!-- Dots -->
+        <div class="carousel-dots" id="carouselDots">
+          <button class="active" onclick="carouselGo(0)"></button>
+          <button onclick="carouselGo(1)"></button>
+          <button onclick="carouselGo(2)"></button>
+        </div>
+      </div>
+
+      <!-- HEADING -->
+      <div class="services-heading">
+        <div class="section-label">Apa yang kami tawarkan</div>
+        <h2 class="section-title">JASA KAMI</h2>
+        <p class="section-sub">Kami hadir untuk membantu kamu menyelesaikan tugas dengan kualitas terbaik dan harga yang
+          bersahabat.</p>
+      </div>
+
+      <!-- SERVICE CARDS: 3 kolom horizontal desktop -->
+      <div class="services-grid">
+
+        <div class="svc-card">
+          <div class="svc-card-text">
+            <h3>PARAFRASE</h3>
+            <p>Ubah teks originalmu menjadi konten bebas plagiat yang tetap sesuai konteks dan makna aslinya.</p>
+          </div>
+          <div class="svc-card-icon">
+            <img src="images/service01.svg" alt="">
+          </div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-text">
+            <h3>JOKI <br> TUGAS</h3>
+            <p>Percayakan tugas kuliah maupun sekolahmu kepada tim profesional. Tepat waktu dan berkualitas tinggi.</p>
+          </div>
+          <div class="svc-card-icon">
+            <img src="images/service02.svg" alt="">
+          </div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-text">
+            <h3>LAYOUTING <br> TUGAS</h3>
+            <p>Dokumen rapi, profesional, dan sesuai format yang diminta dosen atau gurumu.</p>
+          </div>
+          <div class="svc-card-icon">
+            <img src="images/service03.svg" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <!-- Floating chat images -->
+    <img src="images/chat01.webp" alt="" class="contact-float contact-float--left">
+    <img src="images/chat02.webp" alt="" class="contact-float contact-float--right1">
+    <img src="images/chat03.webp" alt="" class="contact-float contact-float--right2">
+
+    <div class="wrapper">
+      <h2 class="section-title">HUBUNGI KAMI</h2>
+      <p class="section-sub">Siap membantu! Hubungi kami untuk konsultasi dan pemesanan kapan saja.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="c-icon">
+            <img src="images/whatsapp-icon.svg" alt="">
+          </div>
+          <div class="c-label">WhatsApp</div>
+          <a href="https://wa.me/6285646620741" target="_blank">0856-4662-0741</a>
+          <small>Respon cepat setiap hari</small>
+        </div>
+        <div class="contact-card">
+          <div class="c-icon">
+            <img src="images/instagram-icon.svg" alt="">
+          </div>
+          <div class="c-label">Instagram</div>
+          <a href="https://instagram.com/ikiteku.id" target="_blank">@ikiteku.id</a>
+          <small>Follow untuk info terbaru</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONI ── -->
+  <section id="testimoni">
+    <div class="wrapper">
+      <!-- Gallery Testimoni -->
+      <div class="testi-gallery-title">GALERI<br>TESTIMONI</div>
+      <p class="section-sub">Bukti nyata komitmen kami dalam membantu menyelesaikan setiap kendala tugas Anda.</p>
+      <div class="testi-gallery-wrap">
+        <div class="testi-gallery-track" id="testiTrack">
+          <div class="testi-gallery-item"><img src="images/testi01.webp" alt="Testimoni 1"></div>
+          <div class="testi-gallery-item"><img src="images/testi02.webp" alt="Testimoni 2"></div>
+          <div class="testi-gallery-item"><img src="images/testi03.webp" alt="Testimoni 3"></div>
+          <div class="testi-gallery-item"><img src="images/testi04.webp" alt="Testimoni 4"></div>
+          <div class="testi-gallery-item"><img src="images/testi05.webp" alt="Testimoni 5"></div>
+          <!-- Duplicate for seamless infinite scroll -->
+          <div class="testi-gallery-item"><img src="images/testi01.webp" alt="Testimoni 1"></div>
+          <div class="testi-gallery-item"><img src="images/testi02.webp" alt="Testimoni 2"></div>
+          <div class="testi-gallery-item"><img src="images/testi03.webp" alt="Testimoni 3"></div>
+          <div class="testi-gallery-item"><img src="images/testi04.webp" alt="Testimoni 4"></div>
+          <div class="testi-gallery-item"><img src="images/testi05.webp" alt="Testimoni 5"></div>
+        </div>
+      </div>
+<!-- Stats with count-up animation -->
+      <div class="testi-stats">
+        <div class="testi-stat-card">
+          <div class="testi-stat-number" data-target="3" data-suffix="+">0+</div>
+          <div class="testi-stat-label">Tahun<br>Pengalaman</div>
+        </div>
+        <div class="testi-stat-card">
+          <div class="testi-stat-number" data-target="150" data-suffix="">0</div>
+          <div class="testi-stat-label">Tugas<br>Selesai</div>
+        </div>
+        <div class="testi-stat-card">
+          <div class="testi-stat-number" data-target="100" data-suffix="">0</div>
+          <div class="testi-stat-label">Customer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="wrapper">
+      <p>© 2025 <span>ikiteku.id</span> — Sahabat Tugas Anda. All rights reserved.</p>
+      <div class="footer-socmed">
+        <a href="https://wa.me/6285646620741" target="_blank" title="WhatsApp">
+          <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/ikiteku.id" target="_blank" title="Instagram">
+          <img src="images/instagram-icon.svg" alt="Instagram">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

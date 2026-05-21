@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Chevron Looping Ke Atas</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #8b00cc; /* Warna latar ungu */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Wadah utama full layar */
+        .arrows-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Trik membuat bentuk panah/chevron menggunakan border */
+        .arrow {
+            position: absolute;
+            width: 30vw;  /* Lebar panah */
+            height: 30vw; /* Tinggi panah dibuat sama agar sudutnya pas */
+            /* Membuat garis atas dan kanan saja dengan putih transparan 0.3 */
+            border-top: 6vw solid rgba(255, 255, 255, 0.3);
+            border-right: 6vw solid rgba(255, 255, 255, 0.3);
+            /* Memutar kotak 45 derajat kebalikan arah jarum jam agar membentuk panah ke atas */
+            transform: rotate(-45deg); 
+            opacity: 0;
+            /* Memanggil animasi bernama 'moveUp' selama 6 detik */
+            animation: moveUp 6s linear infinite;
+        }
+
+        /* Jeda antar panah agar berbaris rapat ke atas */
+        .arrow:nth-child(1) { animation-delay: 0s; }
+        .arrow:nth-child(2) { animation-delay: 1s; }
+        .arrow:nth-child(3) { animation-delay: 2s; }
+        .arrow:nth-child(4) { animation-delay: 3s; }
+        .arrow:nth-child(5) { animation-delay: 4s; }
+        .arrow:nth-child(6) { animation-delay: 5s; }
+
+        /* Logika Gerakan dari Bawah ke Atas */
+        @keyframes moveUp {
+            0% {
+                /* Mulai dari bawah layar luar */
+                top: 110%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1; /* Mulai terlihat jelas saat masuk layar */
+            }
+            90% {
+                opacity: 1; /* Tetap menyala selama di tengah layar */
+            }
+            100% {
+                /* Menghilang setelah melewati batas atas layar */
+                top: -40%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="arrows-container">
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+    </div>
+
+</body>
+</html>
