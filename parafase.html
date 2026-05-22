@@ -367,7 +367,7 @@
         tarifTambahan = selisih * rateDeadline;
       }
 
-      const total = tarifUtama + tarifTambahan;
+      const total = (tarifUtama + tarifTambahan) * 0.95;
 
       elUtama.textContent    = fmt(Math.round(tarifUtama));
       elDeadline.textContent = tarifTambahan > 0 ? fmt(Math.round(tarifTambahan)) : '0';
