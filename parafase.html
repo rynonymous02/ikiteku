@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Parafrase – ikiteku.id</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO: hanya gambar, width auto, centered ── */
+    #parafase-hero {
+      padding-top: 64px;
+      background: #8B00CC;
+      text-align: center;
+      line-height: 0;
+    }
+    #parafase-hero a {
+      display: inline-block;
+      cursor: pointer;
+    }
+    #parafase-hero img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ── FORM SECTION ── */
+    #parafase-form {
+      background: #8B00CC;
+      padding: 48px 0 80px;
+    }
+
+    /* Form card — full width, max-width centered */
+    .pf-card {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 24px;
+      padding: 40px 40px 44px;
+    }
+
+    .pf-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      color: #FFD600;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .pf-field { margin-bottom: 20px; }
+
+    .pf-label {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .pf-input-wrap { position: relative; }
+    .pf-input-wrap input {
+      width: 100%;
+      background: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 60px 14px 22px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1a0030;
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    .pf-input-wrap input:focus { box-shadow: 0 0 0 3px #FFD600; }
+    .pf-input-wrap input::placeholder { color: #bbb; font-weight: 400; }
+    .pf-suffix {
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #8B00CC;
+      pointer-events: none;
+    }
+
+    .pf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Output fields */
+    .pf-output-wrap { margin-bottom: 20px; }
+
+    .pf-output {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 52px;
+    }
+    .pf-output.total {
+      background: #FFD600;
+      border-color: #FFD600;
+    }
+    .pf-output .rp {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .pf-output.total .rp { color: #1a0030; }
+    .pf-output .amount {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+    .pf-output.total .amount {
+      color: #1a0030;
+      font-size: 1.2rem;
+    }
+
+    /* CTA Button */
+    .pf-btn {
+      width: 100%;
+      background: #FFD600;
+      color: #1a0030;
+      border: none;
+      border-radius: 50px;
+      padding: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      margin-top: 8px;
+      box-shadow: 0 4px 20px rgba(255,214,0,0.3);
+    }
+    .pf-btn:hover {
+      background: #ffe033;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,214,0,0.45);
+    }
+    .pf-btn:active { transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .pf-card { padding: 32px 28px 36px; }
+    }
+    @media (max-width: 600px) {
+      .pf-card { padding: 28px 18px 32px; border-radius: 18px; }
+      .pf-row { grid-template-columns: 1fr; }
+      #parafase-form { padding: 36px 0 60px; }
+      #parafase-hero img {
+      width: auto;
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      bottom: 5%;
+    }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.svg" alt="ikiteku.id">
+        <span>ikiteku.id</span>
+      </a>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Jasa Kami</a></li>
+        <li><a href="index.html#contact">Kontak</a></li>
+        <li><a href="index.html#testimoni">Testimoni</a></li>
+      </ul>
+      <div class="nav-socmed">
+        <a href="https://wa.me/6285646620741" target="_blank" title="WhatsApp">
+          <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/ikiteku.id" target="_blank" title="Instagram">
+          <img src="images/instagram-icon.svg" alt="Instagram">
+        </a>
+      </div>
+      <button class="burger" id="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="index.html#services" onclick="closeMenu()">Jasa Kami</a>
+    <a href="index.html#testimoni" onclick="closeMenu()">Testimoni</a>
+    <a href="index.html#contact" onclick="closeMenu()">Kontak</a>
+    <div class="mobile-socmed">
+      <a href="https://wa.me/6285646620741" target="_blank">
+        <img src="images/whatsapp-icon.svg" alt="WhatsApp"> WhatsApp
+      </a>
+      <a href="https://instagram.com/ikiteku.id" target="_blank">
+        <img src="images/instagram-icon.svg" alt="Instagram"> Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- ── HERO: hanya gambar parafase01.webp, klik → WA cek plagiasi ── -->
+  <section id="parafase-hero">
+    <a href="#" onclick="klikCekPlagiasi(event)">
+      <img src="images/parafase01.webp" alt="Cek Plagiasi – ikiteku.id">
+    </a>
+  </section>
+
+  <!-- ── FORM ── -->
+  <section id="parafase-form">
+    <div class="wrapper">
+      <div class="pf-card">
+        <div class="pf-card-title">FORM PARAFRASE</div>
+
+        <!-- Jumlah Halaman -->
+        <div class="pf-field">
+          <label class="pf-label">Jumlah Halaman</label>
+          <div class="pf-input-wrap">
+            <input type="number" id="halaman" min="1" placeholder="Contoh: 50" oninput="hitung()">
+            <span class="pf-suffix">Hlm</span>
+          </div>
+        </div>
+
+        <!-- Skor Plagiasi & Target Turun -->
+        <div class="pf-row pf-field">
+          <div>
+            <label class="pf-label">Skor Plagiasi Saat Ini</label>
+            <div class="pf-input-wrap">
+              <input type="number" id="plagiasi" min="0" max="100" placeholder="Misal: 60" oninput="hitung()">
+              <span class="pf-suffix">%</span>
+            </div>
+          </div>
+          <div>
+            <label class="pf-label">Turun Ke Berapa Persen</label>
+            <div class="pf-input-wrap">
+              <input type="number" id="turun" min="0" max="100" placeholder="Misal: 20" oninput="hitung()">
+              <span class="pf-suffix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deadline -->
+        <div class="pf-field">
+          <label class="pf-label">Deadline</label>
+          <div class="pf-input-wrap">
+            <input type="number" id="deadline" min="1" placeholder="Contoh: 3" oninput="hitung()">
+            <span class="pf-suffix">Hari</span>
+          </div>
+        </div>
+
+        <!-- Tarif Utama & Deadline -->
+        <div class="pf-row pf-output-wrap">
+          <div>
+            <label class="pf-label">Tarif Utama</label>
+            <div class="pf-output">
+              <span class="rp">Rp.</span>
+              <span class="amount" id="outUtama">–</span>
+            </div>
+          </div>
+          <div>
+            <label class="pf-label">Tarif Deadline Mepet</label>
+            <div class="pf-output">
+              <span class="rp">Rp.</span>
+              <span class="amount" id="outDeadline">–</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div class="pf-output-wrap">
+          <label class="pf-label">Total Tarif</label>
+          <div class="pf-output total">
+            <span class="rp">Rp.</span>
+            <span class="amount" id="outTotal">–</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <button class="pf-btn" onclick="pesanViaWA()">💬 Pesan via WhatsApp</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="wrapper">
+      <p>© 2025 <span>ikiteku.id</span> — Sahabat Tugas Anda. All rights reserved.</p>
+      <div class="footer-socmed">
+        <a href="https://wa.me/6285646620741" target="_blank" title="WhatsApp">
+          <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/ikiteku.id" target="_blank" title="Instagram">
+          <img src="images/instagram-icon.svg" alt="Instagram">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const BATAS_NORMAL_PERHARI = 1;
+
+    function fmt(n) {
+      return n.toLocaleString('id-ID');
+    }
+
+    function hitung() {
+      const halaman  = parseFloat(document.getElementById('halaman').value)  || 0;
+      const plagiasi = parseFloat(document.getElementById('plagiasi').value) || 0;
+      const turun    = parseFloat(document.getElementById('turun').value)    || 0;
+      const deadline = parseFloat(document.getElementById('deadline').value) || 0;
+
+      const elUtama    = document.getElementById('outUtama');
+      const elDeadline = document.getElementById('outDeadline');
+      const elTotal    = document.getElementById('outTotal');
+
+      if (!halaman || !plagiasi || !turun || plagiasi <= turun) {
+        elUtama.textContent    = '–';
+        elDeadline.textContent = '–';
+        elTotal.textContent    = '–';
+        return;
+      }
+
+      const persenDiturunkan = (plagiasi - turun) / 100;
+
+      // Tarif Utama
+      let rateUtama;
+      if      (halaman < 40)  rateUtama = 40000;
+      else if (halaman <= 80) rateUtama = 35000;
+      else                    rateUtama = 30000;
+
+      const tarifUtama = halaman * persenDiturunkan * rateUtama;
+
+      // Tarif Deadline
+      let tarifTambahan = 0;
+      if (deadline > 0) {
+        const totalHlmParafrase = halaman * persenDiturunkan;
+        const batasNormalHari   = totalHlmParafrase / BATAS_NORMAL_PERHARI;
+        const selisih           = Math.max(0, batasNormalHari - deadline);
+
+        let rateDeadline;
+        if      (halaman < 40)  rateDeadline = 10000;
+        else if (halaman <= 80) rateDeadline = 9000;
+        else                    rateDeadline = 8000;
+
+        tarifTambahan = selisih * rateDeadline;
+      }
+
+      const total = tarifUtama + tarifTambahan;
+
+      elUtama.textContent    = fmt(Math.round(tarifUtama));
+      elDeadline.textContent = tarifTambahan > 0 ? fmt(Math.round(tarifTambahan)) : '0';
+      elTotal.textContent    = fmt(Math.round(total));
+    }
+
+    function pesanViaWA() {
+      const halaman  = document.getElementById('halaman').value;
+      const plagiasi = document.getElementById('plagiasi').value;
+      const turun    = document.getElementById('turun').value;
+      const deadline = document.getElementById('deadline').value;
+      const selisihPersen = plagiasi && turun ? (plagiasi - turun) : null;
+
+      const utama    = document.getElementById('outUtama').textContent;
+      const dl       = document.getElementById('outDeadline').textContent;
+      const total    = document.getElementById('outTotal').textContent;
+
+      let msg = `Halo ikiteku.id! Saya ingin memesan jasa *Parafrase* 📝\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `📄 *Jumlah Halaman:* ${halaman || '–'} hlm\n`;
+      msg += `🔍 *Plagiasi saat ini:* ${plagiasi || '–'}%\n`;
+      msg += `🎯 *Target turun ke:* ${turun || '–'}%\n`;
+      if (selisihPersen !== null) {
+        msg += `📉 *Selisih persen:* ${selisihPersen}% (${plagiasi}% → ${turun}%)\n`;
+      }
+      msg += `⏰ *Deadline:* ${deadline || '–'} hari\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `💵 *Tarif Utama:* Rp. ${utama !== '–' ? utama : '–'}\n`;
+      msg += `⚡ *Tarif Deadline Mepet:* Rp. ${dl !== '–' ? dl : '–'}\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `💰 *TOTAL TARIF: Rp. ${total !== '–' ? total : '–'}*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `Mohon konfirmasi dan info selanjutnya. Terima kasih! 🙏`;
+
+      window.open(`https://wa.me/6285646620741?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function klikCekPlagiasi(e) {
+      e.preventDefault();
+      const msg = `Halo ikiteku.id! Saya mau cek plagiasi dulu 🔍\nBoleh minta info lebih lanjut? Terima kasih! 🙏`;
+      window.open(`https://wa.me/6285646620741?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
